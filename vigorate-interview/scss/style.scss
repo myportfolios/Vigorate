@@ -1,0 +1,244 @@
+//To ensure uniform display across browsers
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+//////////////////
+//reset unordered list
+//////////////////
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 0rem;
+}
+////////////////////
+
+
+////////////////variables///////////////
+//colors//
+$mainBlueColor: #336699;
+$whiteColor: #ffffff;
+$blackColor: #000000;
+$greenBtnClr: #ace600;
+$blueBtnClr: #00ccff;
+$brownBtnClr:#e6b800;
+$basicHeaderClr:#22d2ff;
+$basicBodyClr:#e6faff;
+$unlimitedHeaderClr:#ffcc00;
+////////////////////
+
+//mixins//
+@mixin clearfix{
+  content:" ";
+  display:table;
+  clear:both;
+}
+
+@mixin fontStyle($fontSize,$fontWeight,$fontHeight){
+  font-size:$fontSize;
+  font-weight:$fontWeight;
+  line-height:$fontHeight;
+}
+@mixin bgColorpadding($bgColor,$color,$p-top,$p-bottom){
+  background-color:$bgColor;
+  color:$color;
+  padding-top:$p-top;
+  padding-bottom:$p-bottom;
+}
+///////////////////
+
+///section////
+section{
+  margin-bottom:10px;
+}
+////////////////////
+
+//components//
+.btn{
+  padding:15px 25px;
+  text-decoration:none;
+  margin:20px 0;
+}
+///////////////////
+
+//Utilities
+.u-bold{
+  @include fontStyle(26px,900,150%);
+}
+.u-styleList{
+ @include fontStyle(18px,400,150%); 
+ margin: 15px 0; 
+}
+//////////////////////////
+.header{
+  @include bgColorpadding($mainBlueColor,$whiteColor,30px,30px);
+    font-size:18px;
+ 
+&__logo{
+  font-size:30px;
+  font-family: 'Roboto', sans-serif;
+}
+  &__hr{
+    background-color:$whiteColor;
+    width:95%;
+    margin:0 auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  &__socials{
+    text-align:right;
+    margin-top:10px;
+   .facebook, .twitter, .wifi{
+    width:1000px;
+    background-color:$whiteColor;
+    border-radius:100%;
+    margin-right:10px;
+  }
+  .fab,.fas{
+    color:$mainBlueColor;
+    padding:3px;
+  } 
+  }
+}
+
+  .heading-1{
+    overflow:hidden;
+    padding:15px;
+
+      &__content{
+          
+        p{
+        font-size:18px;
+         }
+    }
+
+      &__features{
+        .div--1{
+          padding-left:15%;
+        ul{
+            li{
+                font-size:18px;
+            }
+          }
+        }
+       //.div--2{}
+      }
+    }
+
+.plans{
+  text-align:center;
+  
+  &__basic{
+    
+    &--header{
+      @include bgColorpadding($basicHeaderClr,$whiteColor,5px,5px);
+    }
+    &--body{
+     background-color:$basicBodyClr;
+      .contents{
+        @include bgColorpadding(null,$blackColor,10px,10px);
+        list-style:none;
+        text-decoration:none;
+        line-height:170%;
+          hr{
+              width: 90%;
+              margin:0 auto;
+            }
+      }
+    }
+    &--footer{
+      background-color:#f2f2f2;
+      .btn--blue{
+        @include bgColorpadding($blueBtnClr,$whiteColor,null,null);
+      }
+    }
+  }
+  &__unlimited{
+    &--header{
+      @include bgColorpadding($unlimitedHeaderClr,$whiteColor,5px,5px);
+    }
+    &--body{
+     background-color:#fffae6;
+      .contents{
+        @include bgColorpadding(null,$blackColor,10px,10px);
+        list-style:none;
+        text-decoration:none;
+        line-height:170%;
+        
+          hr{
+              width: 90%;
+              margin:0 auto;
+            }
+      }
+    }
+    &--footer{
+      background-color:#f2f2f2;
+      .btn--brown{
+        @include bgColorpadding($brownBtnClr,$whiteColor,null,null);
+      }
+    }
+  }
+}
+.contact{
+  &__title{
+    text-align:center;
+    margin:45px 0;
+  }
+  &__button{
+    text-align:center;
+    .btn{
+      &--green{
+        @include bgColorpadding($greenBtnClr,$whiteColor,10px,10px);
+        font-weight:400;
+        width:100%;
+      }
+    }
+  }
+}
+///////////////
+//footer
+.footr{
+  @include bgColorpadding($mainBlueColor,$whiteColor,10px,10px);
+  &__content{
+    text-align:center;
+  }
+}
+//////////////
+
+
+//Media Queries
+@media only screen and (max-width:576px){
+  .col-sm-4{
+    width:100%;
+    padding:0;
+  }
+  .btn--green{
+    margin-bottom:0;
+  }
+  section.contact{
+    margin-bottom:0;
+  }
+  .plans{
+    margin-bottom:20px;
+  }
+  #idTitle{
+    display:none;
+  }
+  .header{
+    text-align:center;
+    &__socials{
+      text-align:center;
+    }
+  }
+}
+
+@media only screen and (min-width:576px){
+  .header__logo{
+    padding-left:32px;
+  }
+  .header__hr{
+    display:none;
+  }
+  }
